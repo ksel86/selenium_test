@@ -18,5 +18,6 @@ public class MainTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.youtube.com/");
         assertEquals("80px", webDriver.findElement(By.id("logo-icon-container")).getCssValue("width"));
+        webDriver.close();
     }
 }
