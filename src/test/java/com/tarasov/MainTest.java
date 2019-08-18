@@ -11,8 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainTest {
     @Test
-    public void test() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    public void test() throws Exception {
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        } else {
+            Runtime.getRuntime().exec("chmod -R chromedriver");
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+        }
         ChromeOptions chromeOptions = new ChromeOptions();
 //        WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.99.100:32769/wd/hub"), chromeOptions);
         WebDriver webDriver = new ChromeDriver();
