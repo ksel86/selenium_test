@@ -15,7 +15,7 @@ public class MainTest {
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
             System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         } else {
-            Runtime.getRuntime().exec("chmod -R chromedriver");
+            Runtime.getRuntime().exec("chmod -R 755 chromedriver");
             System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
         ChromeOptions chromeOptions = new ChromeOptions();
